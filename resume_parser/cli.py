@@ -40,7 +40,13 @@ def prompt(question: str, default: Optional[str] = None) -> Optional[str]:
     if default:
         q_text.append(f" ({default})", style="dim")
     console.print(q_text, end=" ")
-    return input().strip() or default
+    try:
+        response = input()
+    except EOFError as exc:
+        if default is not None:
+            return default
+        raise exc
+    return response.strip() or default
 
 def print_section_title(title: str) -> None:
     """Print a section title in a styled panel."""
@@ -182,34 +188,49 @@ def run_cli(mode_choice: str, sub_mode: Optional[str], file_path: str) -> None: 
 
 def interactive_cli():
     """Run the interactive CLI mode."""
-    console.clear()
-    fig = Figlet(font="standard")
-    console.print(Align.center(fig.renderText("Resume Parser")), style="bold green")
-    console.print("\n")
-
-    console.print("[bold cyan]Select an option:[/bold cyan]")
-    console.print(" [green]1[/green]. Profile / Readability Check")
-    console.print(" [green]2[/green]. Skills Analysis")
-
-    mode_choice = prompt("Enter choice", "1")
-    mode_choice = (mode_choice or "1").lower()
-    mode_choice = "profile" if mode_choice in {"1", "r", "readability", "profile"} else "skills"
-
-    sub_mode = None
-    if mode_choice == "skills":
-        console.print("\n[bold cyan]Select skills analysis mode:[/bold cyan]")
-        console.print(" [green]g[/green]. General")
-        console.print(" [green]r[/green]. Role-specific\n")
-        sub_mode_choice = prompt("Enter choice", "g")
-        sub_mode_choice = (sub_mode_choice or "g").lower()
-        sub_mode = "general" if sub_mode_choice in {"g", "general"} else "role"
-
     example_resume_path = str(
         Path(__file__).parent.parent
         / "tests" / "data" / "fake_resumes" / "fake_resume.pdf"
-        )
-    file_path = prompt("Enter path to resume file", example_resume_path) or example_resume_path
-    run_cli(mode_choice, sub_mode, file_path)
+    )
+    last_resume_path = example_resume_path
+
+    while True:
+        console.clear()
+        fig = Figlet(font="standard")
+        console.print(Align.center(fig.renderText("Resume Parser")), style="bold green")
+        console.print("\n")
+
+        console.print("[bold cyan]Select an option:[/bold cyan]")
+        console.print(" [green]1[/green]. Profile / Readability Check")
+        console.print(" [green]2[/green]. Skills Analysis")
+
+        mode_choice = prompt("Enter choice", "1")
+        mode_choice = (mode_choice or "1").lower()
+        mode_choice = "profile" if mode_choice in {"1", "r", "readability", "profile"} else "skills"
+
+        sub_mode = None
+        if mode_choice == "skills":
+            console.print("\n[bold cyan]Select skills analysis mode:[/bold cyan]")
+            console.print(" [green]g[/green]. General")
+            console.print(" [green]r[/green]. Role-specific\n")
+            sub_mode_choice = prompt("Enter choice", "g")
+            sub_mode_choice = (sub_mode_choice or "g").lower()
+            sub_mode = "general" if sub_mode_choice in {"g", "general"} else "role"
+
+        file_path = prompt("Enter path to resume file", last_resume_path) or last_resume_path
+        last_resume_path = file_path
+
+        run_cli(mode_choice, sub_mode, file_path)
+
+        console.print("\n")
+        try:
+            next_action = prompt("Press Enter to return to the main menu or type 'q' to quit")
+        except EOFError:
+            console.print("[green]Goodbye![/green]")
+            break
+        if next_action and next_action.lower() in {"q", "quit", "exit"}:
+            console.print("[green]Goodbye![/green]")
+            break
 
 def main():
     """Main entry point for CLI."""
