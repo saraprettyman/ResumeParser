@@ -14,69 +14,272 @@
       },
       {
         "name": "Java",
-        "aliases": ["Java SE", "Java EE", "Java 8", "Java 11", "Java 17"]
+        "aliases": [
+          "Java SE",
+          "Java EE",
+          "Java 8",
+          "Java 11",
+          "Java 17"
+        ]
       },
-      { "name": "C", "aliases": ["C Lang", "ANSI C"] },
+      {
+        "name": "C",
+        "aliases": [
+          "C Lang",
+          "ANSI C"
+        ]
+      },
       {
         "name": "C++",
-        "aliases": ["CPP", "C Plus Plus", "C++11", "C++14", "C++17", "C++20"]
+        "aliases": [
+          "CPP",
+          "C Plus Plus",
+          "C++11",
+          "C++14",
+          "C++17",
+          "C++20"
+        ]
       },
-      { "name": "C#", "aliases": ["C Sharp", ".NET C#", "C# .NET"] },
+      {
+        "name": "C#",
+        "aliases": [
+          "C Sharp",
+          ".NET C#",
+          "C# .NET"
+        ]
+      },
       {
         "name": "JavaScript",
-        "aliases": ["JS", "Java Script", "ECMAScript", "ES6", "ES2015+"]
+        "aliases": [
+          "JS",
+          "Java Script",
+          "ECMAScript",
+          "ES6",
+          "ES2015+"
+        ]
       },
-      { "name": "Go", "aliases": ["Golang"] },
-      { "name": "Rust", "aliases": ["Rustlang"] },
-      { "name": "R", "aliases": ["R Lang", "R Programming", "R Stats"] },
-      { "name": "Swift", "aliases": ["Swift 5", "Swift Language"] },
-      { "name": "Ruby", "aliases": ["Ruby on Rails", "RoR"] },
+      {
+        "name": "Go",
+        "aliases": [
+          "Golang"
+        ]
+      },
+      {
+        "name": "Rust",
+        "aliases": [
+          "Rustlang"
+        ]
+      },
+      {
+        "name": "R",
+        "aliases": [
+          "R Lang",
+          "R Programming",
+          "R Stats"
+        ]
+      },
+      {
+        "name": "Swift",
+        "aliases": [
+          "Swift 5",
+          "Swift Language"
+        ]
+      },
+      {
+        "name": "Ruby",
+        "aliases": [
+          "Ruby on Rails",
+          "RoR"
+        ]
+      },
       {
         "name": "PHP",
-        "aliases": ["PHP 5", "PHP 7", "PHP 8", "Hypertext Preprocessor"]
+        "aliases": [
+          "PHP 5",
+          "PHP 7",
+          "PHP 8",
+          "Hypertext Preprocessor"
+        ]
       },
-      { "name": "Scala", "aliases": ["Scala Language"] },
-      { "name": "TypeScript", "aliases": ["TS", "TSX"] },
-      { "name": "Perl", "aliases": ["Perl5", "Perl 5", "Perl 6", "Raku"] },
-      { "name": "Kotlin", "aliases": ["Kotlin JVM", "Kotlin Native"] },
-      { "name": "Objective-C", "aliases": ["Obj-C", "Objective C"] },
+      {
+        "name": "Scala",
+        "aliases": [
+          "Scala Language"
+        ]
+      },
+      {
+        "name": "TypeScript",
+        "aliases": [
+          "TS",
+          "TSX"
+        ]
+      },
+      {
+        "name": "Perl",
+        "aliases": [
+          "Perl5",
+          "Perl 5",
+          "Perl 6",
+          "Raku"
+        ]
+      },
+      {
+        "name": "Kotlin",
+        "aliases": [
+          "Kotlin JVM",
+          "Kotlin Native"
+        ]
+      },
+      {
+        "name": "Objective-C",
+        "aliases": [
+          "Obj-C",
+          "Objective C"
+        ]
+      },
       {
         "name": "Shell Scripting",
-        "aliases": ["Bash", "Zsh", "Shell Script", "POSIX Shell", "sh", "ksh"]
+        "aliases": [
+          "Bash",
+          "Zsh",
+          "Shell Script",
+          "POSIX Shell",
+          "sh",
+          "ksh"
+        ]
       },
-      { "name": "MATLAB", "aliases": ["MATLAB Programming", "MATLAB Script"] },
+      {
+        "name": "MATLAB",
+        "aliases": [
+          "MATLAB Programming",
+          "MATLAB Script"
+        ]
+      },
       {
         "name": "Fortran",
-        "aliases": ["Fortran 77", "Fortran 90", "Fortran 95"]
+        "aliases": [
+          "Fortran 77",
+          "Fortran 90",
+          "Fortran 95"
+        ]
       },
-      { "name": "Haskell", "aliases": [] },
-      { "name": "Lua", "aliases": [] },
-      { "name": "Groovy", "aliases": [] },
-      { "name": "Dart", "aliases": [] }
+      {
+        "name": "Haskell",
+        "aliases": []
+      },
+      {
+        "name": "Lua",
+        "aliases": []
+      },
+      {
+        "name": "Groovy",
+        "aliases": []
+      },
+      {
+        "name": "Dart",
+        "aliases": []
+      }
     ],
     "Web & Mobile Development": [
-      { "name": "HTML5", "aliases": ["HTML", "HyperText Markup Language"] },
-      { "name": "CSS3", "aliases": ["CSS", "Cascading Style Sheets"] },
-      { "name": "React", "aliases": ["React.js", "ReactJS", "React Native"] },
+      {
+        "name": "HTML5",
+        "aliases": [
+          "HTML",
+          "HyperText Markup Language"
+        ]
+      },
+      {
+        "name": "CSS3",
+        "aliases": [
+          "CSS",
+          "Cascading Style Sheets"
+        ]
+      },
+      {
+        "name": "React",
+        "aliases": [
+          "React.js",
+          "ReactJS",
+          "React Native"
+        ]
+      },
       {
         "name": "Angular",
-        "aliases": ["AngularJS", "Angular 2+", "Angular Framework"]
+        "aliases": [
+          "AngularJS",
+          "Angular 2+",
+          "Angular Framework"
+        ]
       },
-      { "name": "Vue.js", "aliases": ["Vue", "VueJS"] },
-      { "name": "Node.js", "aliases": ["Node", "NodeJS"] },
-      { "name": "Django", "aliases": ["Django Framework"] },
-      { "name": "Flask", "aliases": ["Flask Framework"] },
-      { "name": "Express.js", "aliases": ["Express", "ExpressJS"] },
-      { "name": "Flutter", "aliases": [] },
-      { "name": "Kotlin", "aliases": ["Kotlin Android"] },
+      {
+        "name": "Vue.js",
+        "aliases": [
+          "Vue",
+          "VueJS"
+        ]
+      },
+      {
+        "name": "Node.js",
+        "aliases": [
+          "Node",
+          "NodeJS"
+        ]
+      },
+      {
+        "name": "Django",
+        "aliases": [
+          "Django Framework"
+        ]
+      },
+      {
+        "name": "Flask",
+        "aliases": [
+          "Flask Framework"
+        ]
+      },
+      {
+        "name": "Express.js",
+        "aliases": [
+          "Express",
+          "ExpressJS"
+        ]
+      },
+      {
+        "name": "Flutter",
+        "aliases": []
+      },
+      {
+        "name": "Kotlin",
+        "aliases": [
+          "Kotlin Android"
+        ]
+      },
       {
         "name": "ASP.NET",
-        "aliases": [".NET Web Forms", "ASP.NET Core", "ASP.NET MVC"]
+        "aliases": [
+          ".NET Web Forms",
+          "ASP.NET Core",
+          "ASP.NET MVC"
+        ]
       },
-      { "name": "jQuery", "aliases": [] },
-      { "name": "Bootstrap", "aliases": [] },
-      { "name": "SASS", "aliases": ["SCSS"] },
-      { "name": "Tailwind CSS", "aliases": [] }
+      {
+        "name": "jQuery",
+        "aliases": []
+      },
+      {
+        "name": "Bootstrap",
+        "aliases": []
+      },
+      {
+        "name": "SASS",
+        "aliases": [
+          "SCSS"
+        ]
+      },
+      {
+        "name": "Tailwind CSS",
+        "aliases": []
+      }
     ],
     "Cloud & DevOps": [
       {
@@ -91,20 +294,50 @@
       },
       {
         "name": "Azure",
-        "aliases": ["Microsoft Azure", "Azure Cloud", "Azure DevOps"]
+        "aliases": [
+          "Microsoft Azure",
+          "Azure Cloud",
+          "Azure DevOps"
+        ]
       },
       {
         "name": "GCP",
-        "aliases": ["Google Cloud Platform", "Google Cloud", "GCE", "GKE"]
+        "aliases": [
+          "Google Cloud Platform",
+          "Google Cloud",
+          "GCE",
+          "GKE"
+        ]
       },
-      { "name": "Docker", "aliases": ["Containerization", "Docker Compose"] },
-      { "name": "Kubernetes", "aliases": ["K8s", "Kube"] },
+      {
+        "name": "Docker",
+        "aliases": [
+          "Containerization",
+          "Docker Compose"
+        ]
+      },
+      {
+        "name": "Kubernetes",
+        "aliases": [
+          "K8s",
+          "Kube"
+        ]
+      },
       {
         "name": "Terraform",
-        "aliases": ["Infrastructure as Code", "IaC Terraform"]
+        "aliases": [
+          "Infrastructure as Code",
+          "IaC Terraform"
+        ]
       },
-      { "name": "Ansible", "aliases": [] },
-      { "name": "Jenkins", "aliases": [] },
+      {
+        "name": "Ansible",
+        "aliases": []
+      },
+      {
+        "name": "Jenkins",
+        "aliases": []
+      },
       {
         "name": "CI/CD",
         "aliases": [
@@ -113,183 +346,686 @@
           "Build Pipelines"
         ]
       },
-      { "name": "CloudFormation", "aliases": ["AWS CloudFormation"] },
-      { "name": "GitHub Actions", "aliases": [] },
-      { "name": "OpenShift", "aliases": [] },
-      { "name": "Helm", "aliases": ["Helm Charts"] },
-      { "name": "Puppet", "aliases": [] },
-      { "name": "Chef", "aliases": [] },
-      { "name": "ArgoCD", "aliases": [] }
+      {
+        "name": "CloudFormation",
+        "aliases": [
+          "AWS CloudFormation"
+        ]
+      },
+      {
+        "name": "GitHub Actions",
+        "aliases": []
+      },
+      {
+        "name": "OpenShift",
+        "aliases": []
+      },
+      {
+        "name": "Helm",
+        "aliases": [
+          "Helm Charts"
+        ]
+      },
+      {
+        "name": "Puppet",
+        "aliases": []
+      },
+      {
+        "name": "Chef",
+        "aliases": []
+      },
+      {
+        "name": "ArgoCD",
+        "aliases": []
+      }
     ],
     "Databases & Big Data": [
-      { "name": "SQL", "aliases": ["Structured Query Language"] },
-      { "name": "MySQL", "aliases": [] },
-      { "name": "PostgreSQL", "aliases": ["Postgres"] },
-      { "name": "Oracle", "aliases": ["Oracle DB", "Oracle Database"] },
-      { "name": "MongoDB", "aliases": ["NoSQL Mongo"] },
-      { "name": "Hadoop", "aliases": ["Apache Hadoop"] },
-      { "name": "Spark", "aliases": ["Apache Spark"] },
-      { "name": "Kafka", "aliases": ["Apache Kafka"] },
-      { "name": "ETL", "aliases": ["Extract Transform Load"] },
-      { "name": "Data Warehousing", "aliases": ["Data Warehouse", "DWH"] },
-      { "name": "Cassandra", "aliases": [] },
-      { "name": "Redis", "aliases": [] },
-      { "name": "Snowflake", "aliases": [] },
-      { "name": "BigQuery", "aliases": ["Google BigQuery"] },
-      { "name": "MariaDB", "aliases": [] },
-      { "name": "Neo4j", "aliases": ["Graph Database"] }
+      {
+        "name": "SQL",
+        "aliases": [
+          "Structured Query Language"
+        ]
+      },
+      {
+        "name": "MySQL",
+        "aliases": []
+      },
+      {
+        "name": "PostgreSQL",
+        "aliases": [
+          "Postgres"
+        ]
+      },
+      {
+        "name": "Oracle",
+        "aliases": [
+          "Oracle DB",
+          "Oracle Database"
+        ]
+      },
+      {
+        "name": "MongoDB",
+        "aliases": [
+          "NoSQL Mongo"
+        ]
+      },
+      {
+        "name": "Hadoop",
+        "aliases": [
+          "Apache Hadoop"
+        ]
+      },
+      {
+        "name": "Spark",
+        "aliases": [
+          "Apache Spark"
+        ]
+      },
+      {
+        "name": "Kafka",
+        "aliases": [
+          "Apache Kafka"
+        ]
+      },
+      {
+        "name": "ETL",
+        "aliases": [
+          "Extract Transform Load"
+        ]
+      },
+      {
+        "name": "Data Warehousing",
+        "aliases": [
+          "Data Warehouse",
+          "DWH"
+        ]
+      },
+      {
+        "name": "Cassandra",
+        "aliases": []
+      },
+      {
+        "name": "Redis",
+        "aliases": []
+      },
+      {
+        "name": "Snowflake",
+        "aliases": []
+      },
+      {
+        "name": "BigQuery",
+        "aliases": [
+          "Google BigQuery"
+        ]
+      },
+      {
+        "name": "MariaDB",
+        "aliases": []
+      },
+      {
+        "name": "Neo4j",
+        "aliases": [
+          "Graph Database"
+        ]
+      }
     ],
     "AI/ML & Analytics": [
-      { "name": "TensorFlow", "aliases": ["TF"] },
-      { "name": "PyTorch", "aliases": [] },
-      { "name": "Keras", "aliases": [] },
-      { "name": "Scikit-learn", "aliases": ["sklearn"] },
-      { "name": "XGBoost", "aliases": [] },
-      { "name": "LightGBM", "aliases": [] },
-      { "name": "Deep Learning", "aliases": ["Neural Networks"] },
+      {
+        "name": "TensorFlow",
+        "aliases": [
+          "TF"
+        ]
+      },
+      {
+        "name": "PyTorch",
+        "aliases": []
+      },
+      {
+        "name": "Keras",
+        "aliases": []
+      },
+      {
+        "name": "Scikit-learn",
+        "aliases": [
+          "sklearn"
+        ]
+      },
+      {
+        "name": "XGBoost",
+        "aliases": []
+      },
+      {
+        "name": "LightGBM",
+        "aliases": []
+      },
+      {
+        "name": "Deep Learning",
+        "aliases": [
+          "Neural Networks"
+        ]
+      },
       {
         "name": "NLP",
-        "aliases": ["Natural Language Processing", "Text Mining"]
+        "aliases": [
+          "Natural Language Processing",
+          "Text Mining"
+        ]
       },
-      { "name": "Computer Vision", "aliases": ["CV"] },
-      { "name": "Pandas", "aliases": [] },
-      { "name": "NumPy", "aliases": [] },
-      { "name": "Tableau", "aliases": [] },
-      { "name": "Power BI", "aliases": [] },
-      { "name": "Matplotlib", "aliases": [] },
-      { "name": "Seaborn", "aliases": [] },
-      { "name": "Jupyter Notebook", "aliases": ["Jupyter"] },
-      { "name": "Data Mining", "aliases": [] },
-      { "name": "Data Visualization", "aliases": [] },
-      { "name": "Model Content Protocol", "aliases": ["MCP"] },
-      { "name": "Machine Learning", "aliases": ["ML"] }
+      {
+        "name": "Computer Vision",
+        "aliases": [
+          "CV"
+        ]
+      },
+      {
+        "name": "Pandas",
+        "aliases": []
+      },
+      {
+        "name": "NumPy",
+        "aliases": []
+      },
+      {
+        "name": "Tableau",
+        "aliases": []
+      },
+      {
+        "name": "Power BI",
+        "aliases": []
+      },
+      {
+        "name": "Matplotlib",
+        "aliases": []
+      },
+      {
+        "name": "Seaborn",
+        "aliases": []
+      },
+      {
+        "name": "Jupyter Notebook",
+        "aliases": [
+          "Jupyter"
+        ]
+      },
+      {
+        "name": "Data Mining",
+        "aliases": []
+      },
+      {
+        "name": "Data Visualization",
+        "aliases": []
+      },
+      {
+        "name": "Model Content Protocol",
+        "aliases": [
+          "MCP"
+        ]
+      },
+      {
+        "name": "Machine Learning",
+        "aliases": [
+          "ML"
+        ]
+      }
     ],
     "Software Practices": [
-      { "name": "Agile", "aliases": ["Agile Methodology"] },
-      { "name": "Scrum", "aliases": [] },
-      { "name": "Kanban", "aliases": [] },
-      { "name": "Git", "aliases": ["Git Version Control"] },
-      { "name": "Testing", "aliases": ["QA Testing", "Software Testing"] },
-      { "name": "Selenium", "aliases": [] },
-      { "name": "TDD", "aliases": ["Test Driven Development"] },
-      { "name": "BDD", "aliases": ["Behavior Driven Development"] },
-      { "name": "Unit Testing", "aliases": [] },
-      { "name": "Integration Testing", "aliases": [] },
-      { "name": "Load Testing", "aliases": [] }
+      {
+        "name": "Agile",
+        "aliases": [
+          "Agile Methodology"
+        ]
+      },
+      {
+        "name": "Scrum",
+        "aliases": []
+      },
+      {
+        "name": "Kanban",
+        "aliases": []
+      },
+      {
+        "name": "Git",
+        "aliases": [
+          "Git Version Control"
+        ]
+      },
+      {
+        "name": "Testing",
+        "aliases": [
+          "QA Testing",
+          "Software Testing"
+        ]
+      },
+      {
+        "name": "Selenium",
+        "aliases": []
+      },
+      {
+        "name": "TDD",
+        "aliases": [
+          "Test Driven Development"
+        ]
+      },
+      {
+        "name": "BDD",
+        "aliases": [
+          "Behavior Driven Development"
+        ]
+      },
+      {
+        "name": "Unit Testing",
+        "aliases": []
+      },
+      {
+        "name": "Integration Testing",
+        "aliases": []
+      },
+      {
+        "name": "Load Testing",
+        "aliases": []
+      }
     ],
     "Systems & Security": [
       {
         "name": "Linux",
-        "aliases": ["Unix-like OS", "Ubuntu", "CentOS", "RedHat", "Debian"]
+        "aliases": [
+          "Unix-like OS",
+          "Ubuntu",
+          "CentOS",
+          "RedHat",
+          "Debian"
+        ]
       },
-      { "name": "Windows", "aliases": ["Windows OS", "Windows Server"] },
-      { "name": "macOS", "aliases": ["OSX"] },
-      { "name": "TCP/IP", "aliases": [] },
-      { "name": "VPN", "aliases": [] },
-      { "name": "Firewall", "aliases": [] },
-      { "name": "Network Security", "aliases": [] },
-      { "name": "Ethical Hacking", "aliases": [] },
-      { "name": "IAM", "aliases": ["Identity and Access Management"] },
-      { "name": "Zero Trust", "aliases": [] },
-      { "name": "Penetration Testing", "aliases": ["Pentesting"] },
-      { "name": "SOC", "aliases": ["Security Operations Center"] },
-      { "name": "SIEM", "aliases": [] }
+      {
+        "name": "Windows",
+        "aliases": [
+          "Windows OS",
+          "Windows Server"
+        ]
+      },
+      {
+        "name": "macOS",
+        "aliases": [
+          "OSX"
+        ]
+      },
+      {
+        "name": "TCP/IP",
+        "aliases": []
+      },
+      {
+        "name": "VPN",
+        "aliases": []
+      },
+      {
+        "name": "Firewall",
+        "aliases": []
+      },
+      {
+        "name": "Network Security",
+        "aliases": []
+      },
+      {
+        "name": "Ethical Hacking",
+        "aliases": []
+      },
+      {
+        "name": "IAM",
+        "aliases": [
+          "Identity and Access Management"
+        ]
+      },
+      {
+        "name": "Zero Trust",
+        "aliases": []
+      },
+      {
+        "name": "Penetration Testing",
+        "aliases": [
+          "Pentesting"
+        ]
+      },
+      {
+        "name": "SOC",
+        "aliases": [
+          "Security Operations Center"
+        ]
+      },
+      {
+        "name": "SIEM",
+        "aliases": []
+      }
     ],
     "Industry Tools": [
-      { "name": "AutoCAD", "aliases": [] },
-      { "name": "SAP", "aliases": [] },
-      { "name": "Salesforce", "aliases": [] },
-      { "name": "MATLAB", "aliases": [] },
-      { "name": "Adobe Photoshop", "aliases": ["Photoshop"] },
-      { "name": "UiPath", "aliases": [] },
-      { "name": "CMS", "aliases": ["Content Management System"] },
-      { "name": "WordPress", "aliases": [] },
-      { "name": "Figma", "aliases": [] },
-      { "name": "Adobe XD", "aliases": [] },
-      { "name": "Sketch", "aliases": [] },
-      { "name": "Jira", "aliases": [] },
-      { "name": "Confluence", "aliases": [] },
-      { "name": "Notion", "aliases": [] }
+      {
+        "name": "AutoCAD",
+        "aliases": []
+      },
+      {
+        "name": "SAP",
+        "aliases": []
+      },
+      {
+        "name": "Salesforce",
+        "aliases": []
+      },
+      {
+        "name": "MATLAB",
+        "aliases": []
+      },
+      {
+        "name": "Adobe Photoshop",
+        "aliases": [
+          "Photoshop"
+        ]
+      },
+      {
+        "name": "UiPath",
+        "aliases": []
+      },
+      {
+        "name": "CMS",
+        "aliases": [
+          "Content Management System"
+        ]
+      },
+      {
+        "name": "WordPress",
+        "aliases": []
+      },
+      {
+        "name": "Figma",
+        "aliases": []
+      },
+      {
+        "name": "Adobe XD",
+        "aliases": []
+      },
+      {
+        "name": "Sketch",
+        "aliases": []
+      },
+      {
+        "name": "Jira",
+        "aliases": []
+      },
+      {
+        "name": "Confluence",
+        "aliases": []
+      },
+      {
+        "name": "Notion",
+        "aliases": []
+      }
     ],
     "Blockchain & Web3": [
-      { "name": "Solidity", "aliases": [] },
-      { "name": "Rust", "aliases": [] },
-      { "name": "Go", "aliases": ["Golang"] },
-      { "name": "Ethereum", "aliases": [] },
-      { "name": "Binance Smart Chain", "aliases": ["BSC"] },
-      { "name": "Polygon", "aliases": [] },
-      { "name": "Solana", "aliases": [] },
-      { "name": "Hyperledger", "aliases": [] },
-      { "name": "Smart Contract Development", "aliases": [] },
-      { "name": "Remix IDE", "aliases": [] },
-      { "name": "Truffle", "aliases": [] },
-      { "name": "Hardhat", "aliases": [] },
-      { "name": "Web3.js", "aliases": [] },
-      { "name": "Ethers.js", "aliases": [] },
-      { "name": "DeFi", "aliases": ["Decentralized Finance"] },
-      { "name": "NFT", "aliases": ["Non-Fungible Token"] },
-      { "name": "IPFS", "aliases": [] },
-      { "name": "Tokenomics", "aliases": [] },
-      { "name": "Proof of Work", "aliases": [] },
-      { "name": "Proof of Stake", "aliases": [] },
-      { "name": "Smart Contract Auditing", "aliases": [] },
-      { "name": "Metamask", "aliases": [] },
-      { "name": "Chainlink", "aliases": [] }
+      {
+        "name": "Solidity",
+        "aliases": []
+      },
+      {
+        "name": "Rust",
+        "aliases": []
+      },
+      {
+        "name": "Go",
+        "aliases": [
+          "Golang"
+        ]
+      },
+      {
+        "name": "Ethereum",
+        "aliases": []
+      },
+      {
+        "name": "Binance Smart Chain",
+        "aliases": [
+          "BSC"
+        ]
+      },
+      {
+        "name": "Polygon",
+        "aliases": []
+      },
+      {
+        "name": "Solana",
+        "aliases": []
+      },
+      {
+        "name": "Hyperledger",
+        "aliases": []
+      },
+      {
+        "name": "Smart Contract Development",
+        "aliases": []
+      },
+      {
+        "name": "Remix IDE",
+        "aliases": []
+      },
+      {
+        "name": "Truffle",
+        "aliases": []
+      },
+      {
+        "name": "Hardhat",
+        "aliases": []
+      },
+      {
+        "name": "Web3.js",
+        "aliases": []
+      },
+      {
+        "name": "Ethers.js",
+        "aliases": []
+      },
+      {
+        "name": "DeFi",
+        "aliases": [
+          "Decentralized Finance"
+        ]
+      },
+      {
+        "name": "NFT",
+        "aliases": [
+          "Non-Fungible Token"
+        ]
+      },
+      {
+        "name": "IPFS",
+        "aliases": []
+      },
+      {
+        "name": "Tokenomics",
+        "aliases": []
+      },
+      {
+        "name": "Proof of Work",
+        "aliases": []
+      },
+      {
+        "name": "Proof of Stake",
+        "aliases": []
+      },
+      {
+        "name": "Smart Contract Auditing",
+        "aliases": []
+      },
+      {
+        "name": "Metamask",
+        "aliases": []
+      },
+      {
+        "name": "Chainlink",
+        "aliases": []
+      }
     ],
     "UX/UI Design": [
-      { "name": "Figma", "aliases": [] },
-      { "name": "Adobe XD", "aliases": [] },
-      { "name": "Sketch", "aliases": [] },
-      { "name": "InVision", "aliases": [] },
-      { "name": "Zeplin", "aliases": [] },
-      { "name": "Axure RP", "aliases": [] },
-      { "name": "Balsamiq", "aliases": [] },
-      { "name": "Wireframing", "aliases": [] },
-      { "name": "Prototyping", "aliases": [] },
-      { "name": "User Flows", "aliases": [] },
-      { "name": "Information Architecture", "aliases": [] },
-      { "name": "Responsive Design", "aliases": [] },
-      { "name": "WCAG", "aliases": [] },
-      { "name": "ARIA Standards", "aliases": [] },
-      { "name": "Design Systems", "aliases": [] }
+      {
+        "name": "Figma",
+        "aliases": []
+      },
+      {
+        "name": "Adobe XD",
+        "aliases": []
+      },
+      {
+        "name": "Sketch",
+        "aliases": []
+      },
+      {
+        "name": "InVision",
+        "aliases": []
+      },
+      {
+        "name": "Zeplin",
+        "aliases": []
+      },
+      {
+        "name": "Axure RP",
+        "aliases": []
+      },
+      {
+        "name": "Balsamiq",
+        "aliases": []
+      },
+      {
+        "name": "Wireframing",
+        "aliases": []
+      },
+      {
+        "name": "Prototyping",
+        "aliases": []
+      },
+      {
+        "name": "User Flows",
+        "aliases": []
+      },
+      {
+        "name": "Information Architecture",
+        "aliases": []
+      },
+      {
+        "name": "Responsive Design",
+        "aliases": []
+      },
+      {
+        "name": "WCAG",
+        "aliases": []
+      },
+      {
+        "name": "ARIA Standards",
+        "aliases": []
+      },
+      {
+        "name": "Design Systems",
+        "aliases": []
+      }
     ],
     "Project Management": [
-      { "name": "Agile", "aliases": [] },
-      { "name": "Scrum", "aliases": [] },
-      { "name": "Kanban", "aliases": [] },
-      { "name": "Waterfall", "aliases": [] },
-      { "name": "SAFe", "aliases": ["Scaled Agile Framework"] },
-      { "name": "Lean", "aliases": [] },
-      { "name": "Prince2", "aliases": [] },
-      { "name": "Jira", "aliases": [] },
-      { "name": "Trello", "aliases": [] },
-      { "name": "Asana", "aliases": [] },
-      { "name": "Monday.com", "aliases": [] },
-      { "name": "Microsoft Project", "aliases": [] },
-      { "name": "ClickUp", "aliases": [] },
-      { "name": "Confluence", "aliases": [] },
-      { "name": "Smartsheet", "aliases": [] }
+      {
+        "name": "Agile",
+        "aliases": []
+      },
+      {
+        "name": "Scrum",
+        "aliases": []
+      },
+      {
+        "name": "Kanban",
+        "aliases": []
+      },
+      {
+        "name": "Waterfall",
+        "aliases": []
+      },
+      {
+        "name": "SAFe",
+        "aliases": [
+          "Scaled Agile Framework"
+        ]
+      },
+      {
+        "name": "Lean",
+        "aliases": []
+      },
+      {
+        "name": "Prince2",
+        "aliases": []
+      },
+      {
+        "name": "Jira",
+        "aliases": []
+      },
+      {
+        "name": "Trello",
+        "aliases": []
+      },
+      {
+        "name": "Asana",
+        "aliases": []
+      },
+      {
+        "name": "Monday.com",
+        "aliases": []
+      },
+      {
+        "name": "Microsoft Project",
+        "aliases": []
+      },
+      {
+        "name": "ClickUp",
+        "aliases": []
+      },
+      {
+        "name": "Confluence",
+        "aliases": []
+      },
+      {
+        "name": "Smartsheet",
+        "aliases": []
+      }
     ],
     "Certifications": [
       {
         "name": "AWS Certified Cloud Practitioner",
-        "aliases": ["AWS CCP", "Cloud Practitioner", "CLF-C01", "CLF-C02"]
+        "aliases": [
+          "AWS CCP",
+          "Cloud Practitioner",
+          "CLF-C01",
+          "CLF-C02"
+        ]
       },
       {
-        "name": "AWS Certified Solutions Architect – Associate",
-        "aliases": ["AWS SAA", "AWS SAA-C02", "AWS SAA-C03"]
+        "name": "AWS Certified Solutions Architect \u2013 Associate",
+        "aliases": [
+          "AWS SAA",
+          "AWS SAA-C02",
+          "AWS SAA-C03"
+        ]
       },
       {
-        "name": "AWS Certified Developer – Associate",
-        "aliases": ["AWS CDA", "AWS DVA", "AWS DVA-C01"]
+        "name": "AWS Certified Developer \u2013 Associate",
+        "aliases": [
+          "AWS CDA",
+          "AWS DVA",
+          "AWS DVA-C01"
+        ]
       },
       {
-        "name": "AWS Certified SysOps Administrator – Associate",
-        "aliases": ["AWS SOA", "AWS SOA-C02"]
+        "name": "AWS Certified SysOps Administrator \u2013 Associate",
+        "aliases": [
+          "AWS SOA",
+          "AWS SOA-C02"
+        ]
       },
       {
-        "name": "AWS Certified Security – Specialty",
-        "aliases": ["AWS SCS", "AWS SCS-C01", "AWS Security Specialty"]
+        "name": "AWS Certified Security \u2013 Specialty",
+        "aliases": [
+          "AWS SCS",
+          "AWS SCS-C01",
+          "AWS Security Specialty"
+        ]
       },
       {
         "name": "Microsoft Certified: Azure Solutions Architect Expert",
@@ -302,117 +1038,374 @@
       },
       {
         "name": "Microsoft Certified: Azure Administrator Associate",
-        "aliases": ["Azure Administrator Associate", "AZ-104"]
+        "aliases": [
+          "Azure Administrator Associate",
+          "AZ-104"
+        ]
       },
       {
         "name": "Google Cloud Professional Cloud Architect",
-        "aliases": ["GCP PCA", "Google PCA", "Professional Cloud Architect"]
+        "aliases": [
+          "GCP PCA",
+          "Google PCA",
+          "Professional Cloud Architect"
+        ]
       },
       {
         "name": "Certified Kubernetes Administrator",
-        "aliases": ["CKA"]
+        "aliases": [
+          "CKA"
+        ]
       },
       {
         "name": "PMP (Project Management Professional)",
-        "aliases": ["PMP", "Project Management Professional"]
+        "aliases": [
+          "PMP",
+          "Project Management Professional"
+        ]
       },
       {
         "name": "CSM (Certified Scrum Master)",
-        "aliases": ["CSM", "Scrum Master"]
+        "aliases": [
+          "CSM",
+          "Scrum Master"
+        ]
       },
       {
         "name": "Cisco CCNA",
-        "aliases": ["CCNA", "Cisco Certified Network Associate"]
+        "aliases": [
+          "CCNA",
+          "Cisco Certified Network Associate"
+        ]
       },
       {
         "name": "CompTIA Security+",
-        "aliases": ["CompTIA Sec+", "SY0-601"]
+        "aliases": [
+          "CompTIA Sec+",
+          "SY0-601"
+        ]
       },
       {
         "name": "CompTIA Cloud+",
-        "aliases": ["CompTIA Cloud+", "CV0-003"]
+        "aliases": [
+          "CompTIA Cloud+",
+          "CV0-003"
+        ]
       },
       {
         "name": "CompTIA Network+",
-        "aliases": ["CompTIA Net+", "N10-008"]
+        "aliases": [
+          "CompTIA Net+",
+          "N10-008"
+        ]
       },
       {
         "name": "CompTIA A+",
-        "aliases": ["CompTIA A+", "220-1101", "220-1102"]
+        "aliases": [
+          "CompTIA A+",
+          "220-1101",
+          "220-1102"
+        ]
       },
       {
         "name": "CompTIA Linux+",
-        "aliases": ["CompTIA Linux+", "XK0-005"]
+        "aliases": [
+          "CompTIA Linux+",
+          "XK0-005"
+        ]
       },
       {
         "name": "CompTIA PenTest+",
-        "aliases": ["CompTIA PenTest+", "PT0-002"]
+        "aliases": [
+          "CompTIA PenTest+",
+          "PT0-002"
+        ]
       },
       {
         "name": "CompTIA CySA+",
-        "aliases": ["CySA+", "CompTIA Cybersecurity Analyst", "CS0-003"]
+        "aliases": [
+          "CySA+",
+          "CompTIA Cybersecurity Analyst",
+          "CS0-003"
+        ]
       },
       {
         "name": "ITIL Foundation",
-        "aliases": ["ITIL 4 Foundation", "ITIL v4", "ITIL v3"]
+        "aliases": [
+          "ITIL 4 Foundation",
+          "ITIL v4",
+          "ITIL v3"
+        ]
       },
       {
         "name": "Certified Cloud Security Professional (CCSP)",
-        "aliases": ["CCSP"]
+        "aliases": [
+          "CCSP"
+        ]
       },
       {
         "name": "Certified Information Systems Security Professional (CISSP)",
-        "aliases": ["CISSP"]
+        "aliases": [
+          "CISSP"
+        ]
       },
       {
         "name": "Certified Information Security Manager (CISM)",
-        "aliases": ["CISM"]
+        "aliases": [
+          "CISM"
+        ]
       },
       {
         "name": "Certified Information Systems Auditor (CISA)",
-        "aliases": ["CISA"]
+        "aliases": [
+          "CISA"
+        ]
       },
       {
         "name": "Certified in Risk and Information Systems Control (CRISC)",
-        "aliases": ["CRISC"]
+        "aliases": [
+          "CRISC"
+        ]
       },
       {
         "name": "Certified in the Governance of Enterprise IT (CGEIT)",
-        "aliases": ["CGEIT"]
+        "aliases": [
+          "CGEIT"
+        ]
       },
       {
         "name": "Certified Information Privacy Professional (CIPP)",
-        "aliases": ["CIPP", "CIPP/E", "CIPP/US", "CIPP/C", "CIPP/A"]
+        "aliases": [
+          "CIPP",
+          "CIPP/E",
+          "CIPP/US",
+          "CIPP/C",
+          "CIPP/A"
+        ]
       },
       {
         "name": "Certified Information Privacy Manager (CIPM)",
-        "aliases": ["CIPM"]
+        "aliases": [
+          "CIPM"
+        ]
       },
-      { "name": "Certified Ethical Hacker (CEH)", "aliases": ["CEH"] },
-      { "name": "GIAC Certified Incident Handler", "aliases": ["GCIH"] },
-      { "name": "GIAC Security Essentials Certification", "aliases": ["GSEC"] },
+      {
+        "name": "Certified Ethical Hacker (CEH)",
+        "aliases": [
+          "CEH"
+        ]
+      },
+      {
+        "name": "GIAC Certified Incident Handler",
+        "aliases": [
+          "GCIH"
+        ]
+      },
+      {
+        "name": "GIAC Security Essentials Certification",
+        "aliases": [
+          "GSEC"
+        ]
+      },
       {
         "name": "Google Professional Machine Learning Engineer",
-        "aliases": ["Google Professional ML Engineer", "GCP Professional Machine Learning Engineer"]
+        "aliases": [
+          "Google Professional ML Engineer",
+          "GCP Professional Machine Learning Engineer"
+        ]
       },
       {
         "name": "Microsoft Certified: Azure AI Fundamentals",
-        "aliases": ["AI-900", "Azure AI Fundamentals"]
+        "aliases": [
+          "AI-900",
+          "Azure AI Fundamentals"
+        ]
       },
       {
         "name": "Microsoft Certified: Azure Fundamentals",
-        "aliases": ["AZ-900"]
+        "aliases": [
+          "AZ-900"
+        ]
       },
-      { "name": "ITIL 4 Foundation", "aliases": ["ITIL Foundation", "ITIL v4"] }
+      {
+        "name": "ITIL 4 Foundation",
+        "aliases": [
+          "ITIL Foundation",
+          "ITIL v4"
+        ]
+      }
+    ],
+    "Cloud & Warehousing": [
+      {
+        "name": "Amazon Redshift",
+        "aliases": [
+          "AWS Redshift"
+        ]
+      },
+      {
+        "name": "Snowflake",
+        "aliases": []
+      },
+      {
+        "name": "Google BigQuery",
+        "aliases": [
+          "BigQuery"
+        ]
+      },
+      {
+        "name": "Azure Synapse",
+        "aliases": [
+          "Synapse Analytics"
+        ]
+      },
+      {
+        "name": "Databricks",
+        "aliases": [
+          "Azure Databricks"
+        ]
+      },
+      {
+        "name": "Amazon S3",
+        "aliases": [
+          "AWS S3",
+          "S3"
+        ]
+      },
+      {
+        "name": "Google Cloud Storage",
+        "aliases": [
+          "GCS"
+        ]
+      },
+      {
+        "name": "Azure Data Lake",
+        "aliases": [
+          "ADLS",
+          "Azure Data Lake Storage"
+        ]
+      },
+      {
+        "name": "Delta Lake",
+        "aliases": []
+      },
+      {
+        "name": "Snowpipe",
+        "aliases": []
+      }
+    ],
+    "ETL & Orchestration": [
+      {
+        "name": "Apache Airflow",
+        "aliases": [
+          "Airflow"
+        ]
+      },
+      {
+        "name": "dbt",
+        "aliases": [
+          "dbt Core",
+          "Data Build Tool"
+        ]
+      },
+      {
+        "name": "AWS Glue",
+        "aliases": [
+          "Glue"
+        ]
+      },
+      {
+        "name": "Talend",
+        "aliases": []
+      },
+      {
+        "name": "Fivetran",
+        "aliases": []
+      },
+      {
+        "name": "Informatica PowerCenter",
+        "aliases": [
+          "Informatica"
+        ]
+      },
+      {
+        "name": "Prefect",
+        "aliases": []
+      },
+      {
+        "name": "Dagster",
+        "aliases": []
+      },
+      {
+        "name": "Azure Data Factory",
+        "aliases": [
+          "ADF"
+        ]
+      },
+      {
+        "name": "Google Cloud Dataflow",
+        "aliases": [
+          "Dataflow"
+        ]
+      }
+    ],
+    "Data Modeling": [
+      {
+        "name": "Dimensional Modeling",
+        "aliases": []
+      },
+      {
+        "name": "Star Schema",
+        "aliases": []
+      },
+      {
+        "name": "Snowflake Schema",
+        "aliases": []
+      },
+      {
+        "name": "Data Vault",
+        "aliases": []
+      },
+      {
+        "name": "Entity Relationship Diagram",
+        "aliases": [
+          "ER Diagram",
+          "ERD"
+        ]
+      },
+      {
+        "name": "Kimball Methodology",
+        "aliases": [
+          "Kimball"
+        ]
+      },
+      {
+        "name": "Normalization",
+        "aliases": []
+      },
+      {
+        "name": "Fact Tables",
+        "aliases": []
+      },
+      {
+        "name": "Slowly Changing Dimensions",
+        "aliases": [
+          "SCD"
+        ]
+      },
+      {
+        "name": "Data Lakehouse",
+        "aliases": []
+      }
     ]
   },
   "ROLES": {
-    "Data Engineering": [
+    "AI/ML Engineer": [
       "Programming Languages",
+      "AI/ML & Analytics",
       "Databases & Big Data",
-      "Cloud & Warehousing",
-      "ETL & Orchestration",
-      "Data Modeling"
+      "Cloud & DevOps",
+      "Software Practices",
+      "Certifications"
     ],
     "Backend Developer": [
       "Programming Languages",
@@ -421,10 +1414,10 @@
       "Cloud & DevOps",
       "Software Practices"
     ],
-    "Frontend Developer": [
+    "Blockchain Developer": [
       "Programming Languages",
-      "Web & Mobile Development",
-      "UX/UI Design",
+      "Blockchain & Web3",
+      "Cloud & DevOps",
       "Software Practices"
     ],
     "Cloud Engineer": [
@@ -435,14 +1428,6 @@
       "Software Practices",
       "Certifications"
     ],
-    "AI/ML Engineer": [
-      "Programming Languages",
-      "AI/ML & Analytics",
-      "Databases & Big Data",
-      "Cloud & DevOps",
-      "Software Practices",
-      "Certifications"
-    ],
     "Cybersecurity Specialist": [
       "Systems & Security",
       "Cloud & DevOps",
@@ -450,10 +1435,46 @@
       "Software Practices",
       "Certifications"
     ],
-    "Blockchain Developer": [
+    "Data Analyst": [
       "Programming Languages",
+      "AI/ML & Analytics",
+      "Databases & Big Data",
+      "Software Practices",
+      "Project Management"
+    ],
+    "Data Engineering": [
+      "Programming Languages",
+      "Databases & Big Data",
+      "Cloud & Warehousing",
+      "ETL & Orchestration",
+      "Data Modeling"
+    ],
+    "Data Scientist": [
+      "Programming Languages",
+      "AI/ML & Analytics",
+      "Databases & Big Data",
+      "Software Practices",
+      "Industry Tools"
+    ],
+    "DeFi Analyst": [
       "Blockchain & Web3",
+      "AI/ML & Analytics",
+      "Industry Tools",
+      "Project Management",
+      "Software Practices"
+    ],
+    "DevOps Engineer": [
+      "Programming Languages",
       "Cloud & DevOps",
+      "Systems & Security",
+      "Software Practices",
+      "Industry Tools",
+      "Certifications"
+    ],
+    "Frontend Developer": [
+      "Programming Languages",
+      "Web & Mobile Development",
+      "UX/UI Design",
       "Software Practices"
     ],
     "Full Stack Developer": [
@@ -463,7 +1484,52 @@
       "Cloud & DevOps",
       "UX/UI Design",
       "Software Practices"
+    ],
+    "Mobile Developer": [
+      "Programming Languages",
+      "Web & Mobile Development",
+      "UX/UI Design",
+      "Software Practices"
+    ],
+    "Product Manager": [
+      "Project Management",
+      "Software Practices",
+      "UX/UI Design",
+      "Industry Tools"
+    ],
+    "Site Reliability Engineer": [
+      "Programming Languages",
+      "Cloud & DevOps",
+      "Systems & Security",
+      "Software Practices",
+      "Industry Tools"
+    ],
+    "Smart Contract Engineer": [
+      "Programming Languages",
+      "Blockchain & Web3",
+      "Systems & Security",
+      "Software Practices",
+      "Industry Tools"
+    ],
+    "Solutions Architect": [
+      "Programming Languages",
+      "Cloud & DevOps",
+      "Systems & Security",
+      "Software Practices",
+      "Project Management",
+      "Certifications"
+    ],
+    "Technical Program Manager": [
+      "Project Management",
+      "Software Practices",
+      "Cloud & DevOps",
+      "Programming Languages"
+    ],
+    "Web3 Product Manager": [
+      "Project Management",
+      "Blockchain & Web3",
+      "Industry Tools",
+      "Software Practices"
     ]
   }
-
 }

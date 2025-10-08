@@ -9,6 +9,7 @@ from rich.console import Console
 from rich.text import Text
 from rich.panel import Panel
 from rich.align import Align
+from rich.table import Table
 from pyfiglet import Figlet
 
 from resume_parser.extractors.summary_extractor import SummaryExtractor
@@ -50,6 +51,66 @@ def print_section_title(title: str) -> None:
         expand=True
     )
     console.print(panel)
+
+def print_roles_menu(roles: list[str]) -> None:
+    """Display available roles in a multi-column layout."""
+    if not roles:
+        return
+    columns = 3 if len(roles) >= 15 else 2 if len(roles) > 7 else 1
+    table = Table(show_header=False, box=None, pad_edge=False, expand=False)
+    for _ in range(columns):
+        table.add_column(justify="left", no_wrap=True)
+
+    rows = (len(roles) + columns - 1) // columns
+    for row_idx in range(rows):
+        cells = []
+        for col_idx in range(columns):
+            role_idx = row_idx + rows * col_idx
+            if role_idx < len(roles):
+                cells.append(f"[cyan]{role_idx + 1:>2}.[/cyan] {roles[role_idx]}")
+            else:
+                cells.append("")
+        table.add_row(*cells)
+    console.print(table)
+
+def select_role(roles: list[str]) -> Optional[str]:
+    """Prompt the user to select a role by number or keyword search."""
+    indexed_roles = list(enumerate(roles, start=1))
+    while True:
+        selection = prompt("Select role by number or keyword (q to cancel)")
+        if selection is None:
+            console.print("[yellow]Please enter a number, keyword, or 'q' to exit.[/yellow]")
+            continue
+
+        selection = selection.strip()
+        if not selection:
+            console.print("[yellow]Please enter a number, keyword, or 'q' to exit.[/yellow]")
+            continue
+
+        lowered = selection.lower()
+        if lowered in {"q", "quit", "exit"}:
+            return None
+        if lowered in {"list", "ls", "show"}:
+            print_roles_menu(roles)
+            continue
+        if selection.isdigit():
+            idx = int(selection)
+            if 1 <= idx <= len(roles):
+                return roles[idx - 1]
+            console.print("[red]Invalid role number. Try again.[/red]")
+            continue
+
+        matches = [(idx, name) for idx, name in indexed_roles if lowered in name.lower()]
+        if len(matches) == 1:
+            return matches[0][1]
+        if len(matches) > 1:
+            console.print("[yellow]Multiple roles matched your search:[/yellow]")
+            for idx, name in matches:
+                console.print(f" [cyan]{idx}[/cyan]. {name}")
+            console.print("[yellow]Enter the matching number or refine your keyword.[/yellow]")
+            continue
+
+        console.print("[red]No matching role found. Try again or type 'list' to see options.[/red]")
 
 def run_cli(mode_choice: str, sub_mode: Optional[str], file_path: str) -> None: # pylint: disable=too-many-locals
     """Run the CLI logic based on mode and file path."""
@@ -100,24 +161,18 @@ def run_cli(mode_choice: str, sub_mode: Optional[str], file_path: str) -> None: 
 
         elif sub_mode == "role":
             console.clear()
-            roles = skills_checker.load_roles()
+            roles = sorted(skills_checker.load_roles())
             if not roles:
                 console.print("[red]No roles found in skills_master.json[/red]")
                 return
 
             print_section_title("Available Roles")
-            for i, role in enumerate(roles, 1):
-                console.print(f"[cyan]{i}[/cyan]. {role}")
+            print_roles_menu(roles)
+            console.print("[dim]Tip: type a number, enter keywords to filter, or 'list' to redisplay options.[/dim]")
 
-            role_idx_str = prompt("Select role by number")
-            if not role_idx_str:
+            role_name = select_role(roles)
+            if role_name is None:
                 console.print("[red]No role selected[/red]")
-                return
-            try:
-                role_idx = int(role_idx_str)
-                role_name = roles[role_idx - 1]
-            except (ValueError, IndexError):
-                console.print("[red]Invalid role selection[/red]")
                 return
 
             console.print("\n")
