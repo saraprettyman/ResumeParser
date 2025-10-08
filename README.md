@@ -1,5 +1,5 @@
 <h1 align="center">📄 Resume Parser </h1>
-<p align="center"><em>See your technical resume exactly how recruiters and ATS tools see it — and get clear, actionable feedback.</em></p>
+<p align="center"><em>Review how applicant tracking systems and recruiters read your resume — entirely offline.</em></p>
 
 <div align="center">
 
@@ -15,78 +15,101 @@
 <div><br><br></div>
 
 ## 💡 Why This Exists
-ATS and recruiter software often strip away **formatting, bullets, and design elements** — leaving a plain-text version of your resume that can look very different from the PDF you submit. **Resume Parser** reveals that hidden view so you can improve based on facts, not guesswork. Runs entirely **offline** — your data never leaves your machine.
+Applicant tracking systems (ATS) flatten formatting, strip bullets, and generally read your resume very differently than the polished PDF you send. Resume Parser gives you that plain-text view, shows how each major section gets interpreted, and provides actionable skill coverage feedback. Everything runs locally, so your résumé data never leaves your machine.
 
+This is a project by **Digital Resume Solutions LLC**, built with a privacy-first mindset.
 
-This is a project by **Digital Resume Solutions LLC**, created with a privacy-first approach.
+## 🧭 Features
+- Launch `python -m resume_parser.cli` to open a Rich-powered terminal menu.
+- Choose between a `Profile / Readability Check` and three `Skills Analysis` workflows (general, role-specific, job description alignment).
+- Run multiple passes without restarting: the CLI remembers your last resume and job description paths and offers them as defaults.
+- All parsing happens locally across PDFs, Word docs, text files, and HTML (`.pdf`, `.docx`, `.doc`, `.txt`, `.rtf`, `.odt`, `.md`, `.html`, `.htm`).
+- Ships with a fake resume and job description so you can explore the flow immediately.
 
-
-## 🚀 Features
-- **ATS text view** – See the raw text an ATS extracts.  
-- **Skills check** – Detect missing job-specific keywords & tech skills.  
-- **Recruiter preview** – View a clean, parsed version of your resume.  
-- **Formatting audit** – Spot lost layout, bullets, or special chars.  
-- **Privacy-first** – 100% local processing.
-
-## 🔍 Why Not Use Free Online ATS Scanners?
-| Free Online Scanners | **Resume Parser** |
-|----------------------|-------------------|
-| Uploads your private resume to the cloud | Runs 100% offline on your machine |
-| Opaque algorithms | Transparent, open-source code |
-| Limited control over data retention | You keep total control |
-| Requires subscription, limited # of scans | Unlimited scans — completely free, no catch |
-
-
-## 📦 Installation
-
+## 🚀 Quick Start
 ```bash
-# Clone the repository
-git clone https://github.com/saraprettyman/resume_parser.git
-cd resume_parser
-
-# Create a virtual environment (recommended)
+git clone https://github.com/saraprettyman/ResumeParser.git
+cd ResumeParser
 python -m venv .venv
 source .venv/bin/activate  # or .venv\Scripts\activate on Windows
-
-# Install dependencies
 pip install -e .
-
+resume-parser  # launches the interactive CLI
 ```
+The editable install exposes a `resume-parser` console command (hyphenated, matching the project name) so you do not have to remember the package import path. Prefer `python -m resume_parser` if you want to run the module directly without installing the script. Accept the defaults to experiment with the bundled sample resume (`tests/data/fake_resumes/fake_resume.pdf`) and job description. The CLI clears the screen between steps so you can rerun checks without restarting.
 
-## 🚀 Launch interactive mode
-```bash
-python -m resume_parser.cli
-```
 
-You’ll be guided through:
-1. Selecting your resume
-2. Choosing analysis modes (ATS, Skills)
-3. Viewing results in your terminal
+## 🧪 I. Profile / Readability Check
+- Extracts the professional summary, contact info, education, and experience sections using the parsers in `resume_parser/extractors`.
+- Presents structured tables with hyperlink support for emails, phone numbers, and portfolio URLs.
+- Falls back to the raw section text whenever structured parsing fails, making it easy to spot formatting gaps the ATS view exposes.
 
-## ✅ Skills Checker
+## 🧠 II. Skills Analysis Modes
+### General review
+- Surfaces the skills the parser finds anywhere in your resume and highlights misses from the general skills catalogue.
+
+### Role-specific review
+Compare your resume directly with a specific job description file to see exact overlaps, missing requirements, and resume‑only strengths. Exact matches are emphasized so you can confirm wording, and job‑only items help guide targeted revisions. Works with PDFs, Word docs, and plain text files.
+
+- Loads role templates from `resume_parser/data/skills_master.json`.
+- Filter the list by typing keywords or selecting a number; the CLI offers fuzzy filtering and redisplay commands (`list`, `show`).
+- Prints a color-coded table showing matched and missing skills for the selected role.
 <div align="center">
-  <img src="tests/data/cli_screenshot_2.png" alt="Skills Checker" width="68%">
-</div>  
+  <img src="tests/data/cli_screenshot_2.png" alt="Skills Analysis" width="68%">
+</div>
 
-Scan your resume for **general** or **role-specific** skills from a curated dataset.  
-See what’s recognized — and what’s missing.
 
-## 🛠  Development
-For local development with tests:
+### Job description alignment
+Scan your resume for a general overview of identifiable technical skills, or pick a role template to see what matches and what’s missing. Results are color‑coded for quick scanning, with recognized skills highlighted and gaps clearly called out. Use this to tune wording and prioritize updates before tailoring to a job.
+
+- Compare your resume to a specific job description file (`--job-file`) in any supported format (`.pdf`, `.docx`, `.doc`, `.txt`, `.rtf`, `.odt`, `.md`, `.html`, `.htm`).
+- Highlights matching keywords, skills the job requests that are absent from your resume, and resume-only highlights for differentiation.
+- Shows exact matches in bold to make it obvious where wording already lines up.
+- Kick the tires with `tests/data/job_descriptions/sample_job.txt`, or paste your own posting to get tailored feedback alongside the resume-only wins you can lean on in outreach.
+
+<div align="center">
+  <img src="tests/data/cli_screenshot_3.png" alt="Job Match Analysis" width="68%">
+</div>
+
+## 🛠 Command Line Usage
+Skip the interactive prompts by passing arguments directly:
+
 ```bash
-# Create and activate environment
+# Run the profile/readability check against a specific resume
+resume-parser --mode profile --file ~/Documents/resume.pdf
+
+# Review general skills
+resume-parser --mode skills --sub-mode general --file ~/Documents/resume.pdf
+
+# Role-specific skills review
+resume-parser --mode skills --sub-mode role --file ~/Documents/resume.pdf
+
+# Compare resume + job description
+resume-parser --mode skills --sub-mode job \
+  --file ~/Documents/resume.pdf \
+  --job-file ~/Downloads/job_posting.txt
+```
+
+Arguments:
+- `--mode`: `profile` or `skills` (required when skipping the interactive menu).
+- `--sub-mode`: `general`, `role`, or `job` (required for skills mode).
+- `--file`: path to the resume you want to analyze.
+- `--job-file`: required when `--sub-mode job` is selected.
+
+Prefer the `resume-parser` command, but `python -m resume_parser` and `python -m resume_parser.cli` remain available if you are running the package without installing console scripts or if your environment does not place the script on the `PATH`.
+
+## 🧑‍💻 Development
+For local development with tests:
+
+```bash
 python -m venv .venv
 source .venv/bin/activate
-
-# Install dev dependencies
 pip install -r requirements-dev.txt
-
-# Run tests
 pytest
 ```
+
 We welcome contributions. If you’d like to add a feature or fix a bug, open an issue or submit a pull request.
 
-## 📂 Project Structure
+## 📁 Project Structure
 ```
 .
 ├── 📄 environment.yml               # Conda environment setup
@@ -98,6 +121,7 @@ We welcome contributions. If you’d like to add a feature or fix a bug, open an
 ├── 📦 setup.py                       # Package installer
 ├── 📂 resume_parser/                 # Main package
 │   ├── __init__.py
+│   ├── __main__.py                   # Enables `python -m resume_parser`
 │   ├── 🚀 main.py                     # Entry point
 │   ├── 💻 cli.py                      # CLI interface
 │   ├── 📂 config/
@@ -123,8 +147,10 @@ We welcome contributions. If you’d like to add a feature or fix a bug, open an
     ├── 📂 data/
     │   ├── 🖼️ cli_screenshot_1.png
     │   ├── 🖼️ cli_screenshot_2.png
-    │   └── 📂 fake_resumes/
-    │       └── 📄 fake_resume.pdf
+    │   ├── 📂 fake_resumes/
+    │   │   └── 📄 fake_resume.pdf
+    │   └── 📂 job_descriptions/
+    │       └── 📄 sample_job.txt
     ├── 🧪 test_cli_integration.py
     ├── 🧪 test_contact_extractor.py
     ├── 🧪 test_education_extractor.py
@@ -133,15 +159,10 @@ We welcome contributions. If you’d like to add a feature or fix a bug, open an
 ```
 
 ## 🗺 Roadmap (High-Impact Features First)
-* **Resume vs Job Description Match Score**: Keyword overlap %, missing skills, ATS tips.
-* **Web Interface**: Drag-and-drop resume analysis in the browser.
-* **Career Change Resume Translator**: Maps skills from one industry to equivalent terms in another.
-* **Open Resume Benchmark**: Aggregate anonymous resume data to reveal top skills by industry & role.
-
+* **Resume + Job Description Alignment Enhancements**: richer summaries, scoring, and tailored ATS tips.
+* **Web Interface**: drag-and-drop resume analysis in the browser.
+* **Career Change Resume Translator**: map skills from one industry to equivalent terms in another.
+* **Open Resume Benchmark**: aggregate anonymous resume data to reveal top skills by industry & role.
 
 ## 📜 License
 This project is licensed under the GPLv3 License.
-
-Created by Digital Resume Solutions LLC
-If you find this useful, [Buy Me a Coffee](https://buymeacoffee.com/saraprettyman) to support continued development.
-

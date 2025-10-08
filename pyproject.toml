@@ -22,6 +22,9 @@ dependencies = [
     "pytesseract==0.3.10",
 ]
 
+[project.scripts]
+resume-parser = "resume_parser.cli:main"
+
 [tool.setuptools.packages.find]
 where = ["."]
 include = ["resume_parser*"]

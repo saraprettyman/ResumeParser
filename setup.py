@@ -17,17 +17,22 @@ install_requires = (
 )
 
 setup(
-    name="resume_parser",
+    name="ResumeParser",
     version="0.1.0",
     author="Sara Prettyman",
     author_email="sara@digitalresumesolutions.org",
     description="A tool to parse resumes for ATS checks, skills, and profile insights.",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/saraprettyman/resume_parser",
+    url="https://github.com/saraprettyman/ResumeParser",
     packages=find_packages(),
     install_requires=install_requires,
     python_requires=">=3.9",
     include_package_data=True,
+    entry_points={
+        "console_scripts": [
+            "resume-parser=resume_parser.cli:main",
+        ]
+    },
     license="GNU",
 )
