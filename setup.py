@@ -18,7 +18,7 @@ install_requires = (
 
 setup(
     name="ResumeParser",
-    version="0.1.0",
+    version="0.1.1",
     author="Sara Prettyman",
     author_email="sara@digitalresumesolutions.org",
     description="A tool to parse resumes for ATS checks, skills, and profile insights.",
@@ -34,5 +34,5 @@ setup(
             "resume-parser=resume_parser.cli:main",
         ]
     },
-    license="GNU",
+    license="GPL-3.0-or-later",
 )

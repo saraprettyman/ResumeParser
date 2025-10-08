@@ -37,6 +37,17 @@ resume-parser  # launches the interactive CLI
 ```
 The editable install exposes a `resume-parser` console command (hyphenated, matching the project name) so you do not have to remember the package import path. Prefer `python -m resume_parser` if you want to run the module directly without installing the script. Accept the defaults to experiment with the bundled sample resume (`tests/data/fake_resumes/fake_resume.pdf`) and job description. The CLI clears the screen between steps so you can rerun checks without restarting.
 
+## 📦 Release Notes
+
+### v0.1.1-beta
+- Added a dedicated job-description comparison mode with bolded exact matches and resume-only highlights.
+- Enhanced the skills analyser with a searchable, multi-column role picker and significantly expanded skills dataset.
+- Remembered resume/job paths between runs, refreshed Rich display panels, and shipped a `resume-parser` console command (`python -m resume_parser` still works).
+- Added automated CLI coverage (pytest) and bundled sample job description & screenshot assets to mirror the live flow.
+
+### v0.1.0-beta
+- Initial beta release: ATS text extraction, profile readability check, and general/role-based skill analysis.
+
 
 ## 🧪 I. Profile / Readability Check
 - Extracts the professional summary, contact info, education, and experience sections using the parsers in `resume_parser/extractors`.
