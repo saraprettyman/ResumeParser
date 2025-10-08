@@ -2,6 +2,8 @@
 CLI for parsing resumes and analyzing skills.
 """
 
+# pylint: disable=line-too-long,too-many-locals,too-many-return-statements,too-many-branches,too-many-statements
+
 import argparse
 from pathlib import Path
 from typing import Optional
@@ -120,7 +122,7 @@ def select_role(roles: list[str]) -> Optional[str]:
         console.print("[red]No matching role found. Try again or type 'list' to see options.[/red]")
 
 def run_cli(mode_choice: str, sub_mode: Optional[str], file_path: str,
-            job_file_path: Optional[str] = None) -> None: # pylint: disable=too-many-locals
+            job_file_path: Optional[str] = None) -> None: # pylint: disable=too-many-locals,too-many-return-statements,too-many-branches,too-many-statements
     """Run the CLI logic based on mode and file path."""
     file_path_obj = Path(file_path)
     ext = file_path_obj.suffix.lower()

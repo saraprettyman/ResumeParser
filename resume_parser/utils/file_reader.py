@@ -1,17 +1,27 @@
 """
 file_reader.py
 
-Utility functions for reading resumes from various file formats 
+Utility functions for reading resumes from various file formats
 (.pdf, .docx, .doc, .rtf, .odt, .md, .html, .txt).
 Supports both text-based extraction and OCR fallback for scanned PDFs.
 """
 
 import os
+import warnings
 import pdfplumber
 from docx import Document
 import mammoth
 import pypandoc
 from pdf2image import convert_from_path
+
+# Suppress deprecated pkgutil.find_loader usage within pytesseract (Python 3.13).
+warnings.filterwarnings(
+    "ignore",
+    category=DeprecationWarning,
+    message=".*pkgutil\\.find_loader.*",
+    module=r"pytesseract\.pytesseract",
+)
+
 import pytesseract
 
 
