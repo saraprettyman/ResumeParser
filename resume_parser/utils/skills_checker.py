@@ -20,7 +20,7 @@ Classes:
 """
 
 import re
-from typing import Any, Dict, List, Tuple
+from typing import Any, Dict, List, Tuple, Optional
 
 from resume_parser.utils.skills_list_loader import load_skills, load_roles
 from resume_parser.utils.file_reader import read_resume
@@ -59,7 +59,7 @@ class SkillsChecker:  # pylint: disable=too-few-public-methods
         extracted: Dict[str, Dict[str, List[str]]] = {}
 
         for category, skills in self.skills_data.get("ALL_TECHNICAL_SKILLS", {}).items():
-            found, missing = self._match_skills(skills, resume_lower)
+            found, missing, _ = self._match_skills(skills, resume_lower)
             extracted[category] = {"found": found, "missing": missing}
 
         return extracted
@@ -75,24 +75,77 @@ class SkillsChecker:  # pylint: disable=too-few-public-methods
 
         for category in role_categories:
             skills = self.skills_data.get("ALL_TECHNICAL_SKILLS", {}).get(category, [])
-            found, missing = self._match_skills(skills, resume_lower)
+            found, missing, _ = self._match_skills(skills, resume_lower)
             extracted[category] = {"found": found, "missing": missing}
 
         return extracted
 
-    @staticmethod
-    def _match_skills(skills: List[Dict[str, Any]],
-                      resume_lower: str) -> Tuple[List[str], List[str]]:
+    def compare_with_job_description(
+        self,
+        resume_path: str,
+        job_description_path: str,
+    ) -> Dict[str, Dict[str, List[str]]]:
+        """
+        Compare resume skills with those mentioned in a job description.
+
+        Args:
+            resume_path: Path to the candidate's resume file.
+            job_description_path: Path to the job description file.
+
+        Returns:
+            Mapping of skill categories to overlapping and missing skills, plus
+            a record of canonical resume matches for display formatting.
+        """
+        resume_text = read_resume(resume_path).lower()
+        job_text = read_resume(job_description_path).lower()
+        comparison: Dict[str, Dict[str, List[str]]] = {}
+
+        for category, skills in self.skills_data.get("ALL_TECHNICAL_SKILLS", {}).items():
+            resume_found, _, resume_canonical = self._match_skills(skills, resume_text)
+            job_found, _, _ = self._match_skills(skills, job_text)
+
+            resume_set = set(resume_found)
+            job_set = set(job_found)
+            if not resume_set and not job_set:
+                continue
+
+            comparison[category] = {
+                "matching": sorted(resume_set & job_set),
+                "resume_only": sorted(resume_set - job_set),
+                "job_only": sorted(job_set - resume_set),
+                "resume_exact": sorted(resume_canonical),
+            }
+
+        return comparison
+
+    def _match_skills(
+        self,
+        skills: List[Dict[str, Any]],
+        resume_lower: str,
+    ) -> Tuple[List[str], List[str], List[str]]:
         """
         Match a list of skills against lowercase resume text.
         """
         found: List[str] = []
         missing: List[str] = []
+        canonical_hits: List[str] = []
+
         for skill in skills:
-            skill_names = ([skill["name"].lower()]
-                           + [alias.lower() for alias in skill.get("aliases", [])])
-            if any(re.search(rf"\b{re.escape(name)}\b", resume_lower) for name in skill_names):
+            skill_names = [skill["name"].lower()] + [
+                alias.lower() for alias in skill.get("aliases", [])
+            ]
+            matched_name: Optional[str] = None
+
+            for name in skill_names:
+                if re.search(rf"\b{re.escape(name)}\b", resume_lower):
+                    matched_name = name
+                    break
+
+            if matched_name is not None:
                 found.append(skill["name"])
+                if matched_name == skill["name"].lower():
+                    canonical_hits.append(skill["name"])
             else:
                 missing.append(skill["name"])
-        return found, missing
+
+        return found, missing, canonical_hits

@@ -30,8 +30,9 @@ def parse_args():
     """Parse command-line arguments."""
     parser = argparse.ArgumentParser(description="Resume Parser CLI")
     parser.add_argument("--mode", choices=["profile", "skills"], help="Mode to run")
-    parser.add_argument("--sub-mode", choices=["general", "role"], help="Skills sub-mode")
+    parser.add_argument("--sub-mode", choices=["general", "role", "job"], help="Skills sub-mode")
     parser.add_argument("--file", help="Path to resume file")
+    parser.add_argument("--job-file", help="Path to job description text file")
     return parser.parse_args()
 
 def prompt(question: str, default: Optional[str] = None) -> Optional[str]:
@@ -118,7 +119,8 @@ def select_role(roles: list[str]) -> Optional[str]:
 
         console.print("[red]No matching role found. Try again or type 'list' to see options.[/red]")
 
-def run_cli(mode_choice: str, sub_mode: Optional[str], file_path: str) -> None: # pylint: disable=too-many-locals
+def run_cli(mode_choice: str, sub_mode: Optional[str], file_path: str,
+            job_file_path: Optional[str] = None) -> None: # pylint: disable=too-many-locals
     """Run the CLI logic based on mode and file path."""
     file_path_obj = Path(file_path)
     ext = file_path_obj.suffix.lower()
@@ -186,6 +188,29 @@ def run_cli(mode_choice: str, sub_mode: Optional[str], file_path: str) -> None: 
             extracted = skills_checker.extract_role_skills(file_path, role_name)
             display.display_skills_table(extracted)
 
+        elif sub_mode == "job":
+            console.clear()
+            if not job_file_path:
+                console.print("[red]Job description file is required for job-specific analysis.[/red]")
+                return
+            job_path_obj = Path(job_file_path)
+            if not job_path_obj.exists():
+                console.print(f"[red]Error:[/red] Job description file not found: {job_file_path}")
+                return
+            if job_path_obj.suffix.lower() not in SUPPORTED_EXTENSIONS:
+                console.print(
+                    f"[red]Error:[/red] Unsupported job description file type: '{job_path_obj.suffix}'.\n"
+                    f"Please use one of: {', '.join(SUPPORTED_EXTENSIONS)}"
+                )
+                return
+
+            print_section_title("Job Description Alignment")
+            comparison = skills_checker.compare_with_job_description(file_path, job_file_path)
+            if not comparison:
+                console.print("[yellow]No overlapping skills detected between the resume and job description.[/yellow]")
+            else:
+                display.display_job_match_table(comparison)
+
 def interactive_cli():
     """Run the interactive CLI mode."""
     example_resume_path = str(
@@ -193,6 +218,11 @@ def interactive_cli():
         / "tests" / "data" / "fake_resumes" / "fake_resume.pdf"
     )
     last_resume_path = example_resume_path
+    example_job_path = str(
+        Path(__file__).parent.parent
+        / "tests" / "data" / "job_descriptions" / "sample_job.txt"
+    )
+    last_job_path = example_job_path
 
     while True:
         console.clear()
@@ -212,15 +242,25 @@ def interactive_cli():
         if mode_choice == "skills":
             console.print("\n[bold cyan]Select skills analysis mode:[/bold cyan]")
             console.print(" [green]g[/green]. General")
-            console.print(" [green]r[/green]. Role-specific\n")
+            console.print(" [green]r[/green]. Role-specific")
+            console.print(" [green]j[/green]. Job description specific\n")
             sub_mode_choice = prompt("Enter choice", "g")
             sub_mode_choice = (sub_mode_choice or "g").lower()
-            sub_mode = "general" if sub_mode_choice in {"g", "general"} else "role"
+            if sub_mode_choice in {"g", "general"}:
+                sub_mode = "general"
+            elif sub_mode_choice in {"r", "role"}:
+                sub_mode = "role"
+            else:
+                sub_mode = "job"
 
         file_path = prompt("Enter path to resume file", last_resume_path) or last_resume_path
         last_resume_path = file_path
+        job_file_path = None
+        if sub_mode == "job":
+            job_file_path = prompt("Enter path to job description file", last_job_path) or last_job_path
+            last_job_path = job_file_path
 
-        run_cli(mode_choice, sub_mode, file_path)
+        run_cli(mode_choice, sub_mode, file_path, job_file_path)
 
         console.print("\n")
         try:
@@ -236,7 +276,7 @@ def main():
     """Main entry point for CLI."""
     args = parse_args()
     if args.mode and args.file:
-        run_cli(args.mode, args.sub_mode, args.file)
+        run_cli(args.mode, args.sub_mode, args.file, args.job_file)
     else:
         interactive_cli()
 

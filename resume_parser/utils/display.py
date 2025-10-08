@@ -146,6 +146,71 @@ class Display:
         console.print(table)
 
     # ------------------------
+    # Resume + Job Description Alignment
+    # ------------------------
+    def display_job_match_table(self, comparison: dict):
+        """
+        Displays alignment between resume and job description skills.
+
+        Args:
+            comparison (dict): {
+                "CategoryName": {
+                    "matching": [...],
+                    "resume_only": [...],
+                    "job_only": [...]
+                },
+                ...
+            }
+        """
+        if not comparison:
+            console.print("[dim]No overlapping skills to show.[/dim]")
+            return
+
+        table = Table(
+            title="Resume + Job Description Alignment",
+            show_lines=True,
+            expand=True,
+            width=console.width
+        )
+        table.add_column("Category", style="bold cyan", no_wrap=True)
+        table.add_column("Matching", style="green")
+        table.add_column("Missing (not in resume)", style="red")
+        table.add_column("Other (only in resume)", style="yellow")
+
+        for category, data in comparison.items():
+            resume_exact = set(data.get("resume_exact", []))
+
+            matching_skills = data.get("matching", [])
+            if matching_skills:
+                matching = ", ".join(
+                    (f"[bold][green]{skill}[/green][/bold]"
+                     if skill in resume_exact else f"[green]{skill}[/green]")
+                    for skill in matching_skills
+                )
+            else:
+                matching = "[dim]None[/dim]"
+
+            missing_skills = data.get("job_only", [])
+            if missing_skills:
+                missing = ", ".join(f"[red]{skill}[/red]" for skill in missing_skills)
+            else:
+                missing = "[dim]None[/dim]"
+
+            resume_only_skills = data.get("resume_only", [])
+            if resume_only_skills:
+                resume_only = ", ".join(
+                    (f"[bold][yellow]{skill}[/yellow][/bold]"
+                     if skill in resume_exact else f"[yellow]{skill}[/yellow]")
+                    for skill in resume_only_skills
+                )
+            else:
+                resume_only = "[dim]None[/dim]"
+
+            table.add_row(category, matching, missing, resume_only)
+
+        console.print(table)
+
+    # ------------------------
     # Experience
     # ------------------------
     def display_experience(self, exp_res: dict):

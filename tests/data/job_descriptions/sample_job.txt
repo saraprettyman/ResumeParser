@@ -1,0 +1,15 @@
+Senior Data Engineer – Job Description
+
+We are looking for a Senior Data Engineer with experience building cloud-scale data platforms. 
+The ideal candidate is fluent in Python and SQL, has designed dimensional models, and can orchestrate modern ELT pipelines.
+
+Key responsibilities:
+- Develop batch and streaming pipelines using Apache Airflow and dbt.
+- Maintain Snowflake and Amazon Redshift warehouses with robust Data Modeling standards (star schema, slowly changing dimensions).
+- Collaborate with analysts to deliver machine learning features and dashboards.
+- Manage data infrastructure on AWS, including S3, Glue, and Lambda.
+
+Preferred experience:
+- Experience with Delta Lake and Databricks for lakehouse architectures.
+- Familiarity with Terraform, CI/CD for data pipelines, and observability practices.
+- Knowledge of BigQuery or Azure Synapse is a plus.

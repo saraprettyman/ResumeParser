@@ -23,3 +23,11 @@ def fake_resume_path(request):
     Yields one fake resume path for each test run.
     """
     return request.param
+
+
+@pytest.fixture
+def fake_job_description_path():
+    """
+    Provides a sample job description path for tests.
+    """
+    return Path(__file__).parent / "data" / "job_descriptions" / "sample_job.txt"
