@@ -41,7 +41,7 @@ def test_job_description_comparison(fake_resume_path: Any, fake_job_description_
 
     cloud_category = comparison.get("Cloud & DevOps", {})
     assert "AWS" in cloud_category.get("matching", []), "AWS should be marked as a matched skill"
-    assert "AWS" in set(cloud_category.get("resume_exact", [])), "AWS should be a verbatim resume match"
+    assert "AWS" in set(cloud_category.get("resume_exact", [])), "AWS: verbatim resume match issue"
 
     assert any(
         data.get("job_only")

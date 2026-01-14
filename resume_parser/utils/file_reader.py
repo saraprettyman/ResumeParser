@@ -9,6 +9,7 @@ Supports both text-based extraction and OCR fallback for scanned PDFs.
 import os
 import warnings
 import pdfplumber
+import pytesseract
 from docx import Document
 import mammoth
 import pypandoc
@@ -22,7 +23,6 @@ warnings.filterwarnings(
     module=r"pytesseract\.pytesseract",
 )
 
-import pytesseract
 
 
 def read_pdf(file_path: str) -> str:
