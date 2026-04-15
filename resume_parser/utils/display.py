@@ -5,8 +5,8 @@ Provides rich console output utilities for displaying different sections
 of extracted resume data (contact info, skills, experience, education, etc.).
 Uses `rich` to produce nicely formatted tables and panels.
 """
+import logging
 from typing import Optional
-from venv import logger
 from rich.table import Table
 from rich.panel import Panel
 from rich.align import Align
@@ -14,6 +14,7 @@ from rich.console import Console
 
 # Global console for printing
 console = Console()
+logger = logging.getLogger(__name__)
 
 
 class Display:

@@ -27,6 +27,22 @@ def test_general_skills_extraction(fake_resume_path: Any):
     ), "'machine learning' should be detected in found skills"
 
 
+def test_role_skills_extraction(fake_resume_path: Any):
+    """
+    Validates that extract_role_skills returns data only for the requested role's categories.
+    """
+    checker = SkillsChecker()
+    roles = checker.load_roles()
+    assert roles, "There should be at least one available role"
+
+    role = roles[0]
+    result = checker.extract_role_skills(str(fake_resume_path), role)
+    assert isinstance(result, dict), "Role skills result should be a dict"
+    for category, data in result.items():
+        assert "found" in data, f"'found' key missing in category '{category}'"
+        assert "missing" in data, f"'missing' key missing in category '{category}'"
+
+
 def test_job_description_comparison(fake_resume_path: Any, fake_job_description_path: Any):
     """
     Ensures resume vs job description comparison highlights matches and gaps.
@@ -47,3 +63,30 @@ def test_job_description_comparison(fake_resume_path: Any, fake_job_description_
         data.get("job_only")
         for data in comparison.values()
     ), "At least one skill should exist only in the job description"
+
+
+def test_score_alignment_returns_expected_keys(fake_resume_path: Any, fake_job_description_path: Any):
+    """
+    Validates the structure and range of score_alignment output.
+    """
+    checker = SkillsChecker()
+    result = checker.score_alignment(str(fake_resume_path), str(fake_job_description_path))
+
+    assert "score" in result, "'score' key missing"
+    assert "matched" in result, "'matched' key missing"
+    assert "total_in_jd" in result, "'total_in_jd' key missing"
+    assert "categories" in result, "'categories' key missing"
+
+    assert 0.0 <= result["score"] <= 100.0, "Score should be between 0 and 100"
+    assert result["matched"] <= result["total_in_jd"], "Matched can't exceed total_in_jd"
+    assert isinstance(result["categories"], dict)
+
+
+def test_score_alignment_positive_match(fake_resume_path: Any, fake_job_description_path: Any):
+    """
+    Verifies that the fake resume scores above 0 against the bundled job description.
+    """
+    checker = SkillsChecker()
+    result = checker.score_alignment(str(fake_resume_path), str(fake_job_description_path))
+    assert result["matched"] > 0, "At least one skill should match between resume and job description"
+    assert result["score"] > 0.0, "Alignment score should be positive"
