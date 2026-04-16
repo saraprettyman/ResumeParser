@@ -170,7 +170,7 @@ We welcome contributions. If you’d like to add a feature or fix a bug, open an
 ```
 
 ## 🗺 Roadmap (High-Impact Features First)
-* **Resume + Job Description Alignment Enhancements**: richer summaries, scoring, and tailored ATS tips.
+* ✅ **Resume + Job Description Alignment Scoring**: `SkillsChecker.score_alignment()` returns an overall match percentage plus a per-category breakdown — consumed by the CLI to surface ATS coverage gaps at a glance.
 * **Web Interface**: drag-and-drop resume analysis in the browser.
 * **Career Change Resume Translator**: map skills from one industry to equivalent terms in another.
 * **Open Resume Benchmark**: aggregate anonymous resume data to reveal top skills by industry & role.

@@ -62,7 +62,7 @@ class ExperienceExtractor(BaseExtractor):
 
         # --- Try patterns in priority order ---
         matches = []
-        for label, pattern in [
+        for _, pattern in [
             ("COMPANY | TITLE + DATES", pipe_pattern_company_title),
             ("PIPE 4", pipe_pattern_4),
             ("PIPE 3", pipe_pattern_3),
@@ -71,24 +71,6 @@ class ExperienceExtractor(BaseExtractor):
             matches = list(pattern.finditer(section_text))
             if matches:
                 break  # stop on first matching format
-
-        # --- Debug if no matches found ---
-        if not matches:
-            print("DEBUG: No matches found — checking why...")
-            print("=== Section Text ===")
-            print(section_text)
-            print("====================")
-            for label, pattern in [
-                ("COMPANY | TITLE + DATES", pipe_pattern_company_title),
-                ("PIPE 4", pipe_pattern_4),
-                ("PIPE 3", pipe_pattern_3),
-                ("ENTRY", entry_pattern),
-            ]:
-                print(f"\n--- Testing pattern: {label} ---")
-                test_matches = list(pattern.finditer(section_text))
-                print(f"Found {len(test_matches)} matches")
-                for i, m in enumerate(test_matches, 1):
-                    print(f"Match {i}: {m.groupdict()}")
 
         # --- Build items ---
         items = []

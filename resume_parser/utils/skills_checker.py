@@ -118,6 +118,56 @@ class SkillsChecker:  # pylint: disable=too-few-public-methods
 
         return comparison
 
+    def score_alignment(
+        self,
+        resume_path: str,
+        job_description_path: str,
+    ) -> Dict[str, Any]:
+        """
+        Score how well a resume aligns with a job description.
+
+        The score is expressed as a percentage of skills mentioned in the job
+        description that are also present in the resume.  A per-category
+        breakdown is included so the caller can highlight the weakest areas.
+
+        Args:
+            resume_path: Path to the candidate's resume file.
+            job_description_path: Path to the job description file.
+
+        Returns:
+            dict with keys:
+                - "score" (float): overall match percentage (0–100).
+                - "matched" (int): number of skills matching between resume and JD.
+                - "total_in_jd" (int): total skills found in the job description.
+                - "categories" (dict): per-category breakdown with
+                  "matched", "total_in_jd", and "score" fields.
+        """
+        comparison = self.compare_with_job_description(resume_path, job_description_path)
+
+        total_jd = 0
+        total_matched = 0
+        categories: Dict[str, Dict[str, Any]] = {}
+
+        for category, data in comparison.items():
+            cat_jd = len(data.get("matching", [])) + len(data.get("job_only", []))
+            cat_matched = len(data.get("matching", []))
+            cat_score = round((cat_matched / cat_jd * 100) if cat_jd else 0.0, 1)
+            categories[category] = {
+                "matched": cat_matched,
+                "total_in_jd": cat_jd,
+                "score": cat_score,
+            }
+            total_jd += cat_jd
+            total_matched += cat_matched
+
+        overall = round((total_matched / total_jd * 100) if total_jd else 0.0, 1)
+        return {
+            "score": overall,
+            "matched": total_matched,
+            "total_in_jd": total_jd,
+            "categories": categories,
+        }
+
     def _match_skills(
         self,
         skills: List[Dict[str, Any]],
