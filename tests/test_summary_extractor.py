@@ -1,3 +1,4 @@
+# pylint: disable=redefined-outer-name
 """Unit tests for resume_parser.extractors.summary_extractor.SummaryExtractor."""
 
 import pytest

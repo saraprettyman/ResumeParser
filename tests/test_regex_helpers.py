@@ -1,6 +1,5 @@
 """Unit tests for resume_parser.utils.regex_helpers."""
 
-import pytest
 from resume_parser.utils.regex_helpers import (
     find_first,
     find_all,
@@ -24,12 +23,12 @@ class TestFindFirst:
         assert find_first(r"hello", "HELLO world") == "HELLO"
 
     def test_strips_surrounding_whitespace(self):
-        # pattern captures surrounding space — result must still be stripped
         result = find_first(r"\s*\w+\s*", "  hello  world")
         assert result == result.strip()
 
     def test_returns_full_match(self):
-        assert find_first(r"[A-Za-z]+@[A-Za-z]+\.[A-Za-z]+", "user@example.com") == "user@example.com"
+        pattern = r"[A-Za-z]+@[A-Za-z]+\.[A-Za-z]+"
+        assert find_first(pattern, "user@example.com") == "user@example.com"
 
 
 # ---------------------------------------------------------------------------
@@ -47,10 +46,10 @@ class TestFindAll:
         assert "XYZ" in result
 
     def test_empty_text_returns_empty(self):
-        assert find_all([r"\d+"], "") == []
+        assert not find_all([r"\d+"], "")
 
     def test_no_match_returns_empty(self):
-        assert find_all([r"\d+"], "no numbers") == []
+        assert not find_all([r"\d+"], "no numbers")
 
 
 # ---------------------------------------------------------------------------
@@ -95,7 +94,7 @@ class TestFindAdditionalUrls:
         assert result == []
 
     def test_no_urls_in_text_returns_empty(self):
-        assert find_additional_urls("plain text no urls", []) == []
+        assert not find_additional_urls("plain text no urls", [])
 
     def test_www_url_detected(self):
         text = "Go to www.example.com for info"

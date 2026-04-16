@@ -1,6 +1,5 @@
 """Unit tests for resume_parser.utils.section_finder."""
 
-import pytest
 from resume_parser.utils.section_finder import find_section
 
 

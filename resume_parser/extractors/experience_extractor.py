@@ -62,7 +62,7 @@ class ExperienceExtractor(BaseExtractor):
 
         # --- Try patterns in priority order ---
         matches = []
-        for label, pattern in [
+        for _, pattern in [
             ("COMPANY | TITLE + DATES", pipe_pattern_company_title),
             ("PIPE 4", pipe_pattern_4),
             ("PIPE 3", pipe_pattern_3),

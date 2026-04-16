@@ -1,6 +1,5 @@
 """Unit tests for resume_parser.utils.text_normalizer."""
 
-import pytest
 from resume_parser.utils.text_normalizer import normalize_whitespace
 
 

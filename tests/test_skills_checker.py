@@ -65,7 +65,9 @@ def test_job_description_comparison(fake_resume_path: Any, fake_job_description_
     ), "At least one skill should exist only in the job description"
 
 
-def test_score_alignment_returns_expected_keys(fake_resume_path: Any, fake_job_description_path: Any):
+def test_score_alignment_returns_expected_keys(
+    fake_resume_path: Any, fake_job_description_path: Any
+):
     """
     Validates the structure and range of score_alignment output.
     """
@@ -88,5 +90,5 @@ def test_score_alignment_positive_match(fake_resume_path: Any, fake_job_descript
     """
     checker = SkillsChecker()
     result = checker.score_alignment(str(fake_resume_path), str(fake_job_description_path))
-    assert result["matched"] > 0, "At least one skill should match between resume and job description"
+    assert result["matched"] > 0, "At least one skill should match between resume and JD"
     assert result["score"] > 0.0, "Alignment score should be positive"

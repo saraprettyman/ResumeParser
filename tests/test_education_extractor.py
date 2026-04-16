@@ -1,8 +1,9 @@
-# pylint: disable=duplicate-code
+# pylint: disable=duplicate-code,redefined-outer-name
 """Tests for the EducationExtractor, ensuring educational history is correctly parsed."""
 
-import pytest
 from typing import Any
+
+import pytest
 from resume_parser.extractors.education_extractor import EducationExtractor
 
 
