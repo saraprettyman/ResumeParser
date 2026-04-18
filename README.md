@@ -177,3 +177,12 @@ We welcome contributions. If you’d like to add a feature or fix a bug, open an
 
 ## 📜 License
 This project is licensed under the GPLv3 License.
+
+
+## Programming Notes (todo)
+- Update the Role-Specific Skills Review to include a key explaining the colors. Also add a color blind friendly terminal flag so it's not showing red green anywhere as distinct identifiers.
+- Expand skills database from 228 to 2,000+ skills with broader aliases and soft skills coverage.
+- Add quantification detector (flag bullets missing numbers/metrics) and action verb analyzer (weak vs. strong verbs).
+- Fix multi-education parsing — currently only captures one education record per resume.
+- Add JSON/CSV export for all analysis modes so results can be piped into other tools.
+- Build web interface with drag-and-drop resume upload for non-technical users.
