@@ -8,7 +8,7 @@
 [![Medium](https://img.shields.io/badge/-@saraprettyman-03a147?style=flat)](https://medium.com/@saraprettyman)
 [![Buy Me a Coffee](https://img.shields.io/badge/-Buy%20Me%20a%20Coffee-orange?logo=buy-me-a-coffee&logoColor=white)](https://buymeacoffee.com/saraprettyman)
 
-<img src="tests/data/cli_screenshot_1.png" alt="CLI Screenshot" width="80%">
+<img src="assets/cli_screenshot_1.png" alt="CLI Screenshot" width="80%">
 
 </div>
 
@@ -65,7 +65,7 @@ Compare your resume directly with a specific job description file to see exact o
 - Filter the list by typing keywords or selecting a number; the CLI offers fuzzy filtering and redisplay commands (`list`, `show`).
 - Prints a color-coded table showing matched and missing skills for the selected role.
 <div align="center">
-  <img src="tests/data/cli_screenshot_2.png" alt="Skills Analysis" width="68%">
+  <img src="assets/cli_screenshot_2.png" alt="Skills Analysis" width="68%">
 </div>
 
 
@@ -78,7 +78,7 @@ Scan your resume for a general overview of identifiable technical skills, or pic
 - Kick the tires with `tests/data/job_descriptions/sample_job.txt`, or paste your own posting to get tailored feedback alongside the resume-only wins you can lean on in outreach.
 
 <div align="center">
-  <img src="tests/data/cli_screenshot_3.png" alt="Job Match Analysis" width="68%">
+  <img src="assets/cli_screenshot_3.png" alt="Job Match Analysis" width="68%">
 </div>
 
 ## 🛠 Command Line Usage
@@ -186,3 +186,4 @@ This project is licensed under the GPLv3 License.
 - Fix multi-education parsing — currently only captures one education record per resume.
 - Add JSON/CSV export for all analysis modes so results can be piped into other tools.
 - Build web interface with drag-and-drop resume upload for non-technical users.
+- Expand test suite with diverse fake resumes covering edge cases: multiple education entries, non-standard formatting, sparse resumes, and different file formats. Current single PDF is not sufficient coverage.
