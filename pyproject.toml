@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "resume_parser"
-version = "0.1.1"
+version = "0.1.2"
 description = "A tool for parsing and analyzing technical resumes"
 authors = [
     { name="Sara", email="sara@digitalresumesolutions.org" }
