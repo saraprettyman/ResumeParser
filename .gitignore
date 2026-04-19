@@ -1,4 +1,3 @@
-cat > .gitignore << 'EOF'
 __pycache__/
 *.py[cod]
 *$py.class
@@ -20,4 +19,3 @@ Thumbs.db
 .vscode/
 *.log
 .ipynb_checkpoints/
-EOF
