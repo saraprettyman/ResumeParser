@@ -54,6 +54,18 @@ Master's of Science in Data Science               December 2023
 GPA: 4.0
 """
 
+EDUCATION_SECTION_MULTI = """\
+State University
+Logan, Utah
+Bachelor of Science: Computer Science  May 2021
+GPA: 3.8/4.0
+Minor: Mathematics
+
+MIT
+Master of Science in Data Science  December 2023
+GPA: 4.0
+"""
+
 EDUCATION_SECTION_EMPTY = ""
 
 
@@ -97,3 +109,20 @@ class TestParseEducation:
         required_keys = {"Institution", "Location", "Graduation Date",
                          "Degree & Emphasis", "GPA", "Minors", "Details"}
         assert required_keys.issubset(items[0].keys())
+
+    def test_multi_education_returns_two_items(self, extractor):
+        items = extractor.parse_education(EDUCATION_SECTION_MULTI)
+        assert len(items) == 2
+
+    def test_multi_education_first_institution(self, extractor):
+        items = extractor.parse_education(EDUCATION_SECTION_MULTI)
+        assert "State University" in items[0]["Institution"]
+
+    def test_multi_education_second_institution(self, extractor):
+        items = extractor.parse_education(EDUCATION_SECTION_MULTI)
+        assert "MIT" in items[1]["Institution"]
+
+    def test_multi_education_both_dates_extracted(self, extractor):
+        items = extractor.parse_education(EDUCATION_SECTION_MULTI)
+        assert "2021" in items[0]["Graduation Date"]
+        assert "2023" in items[1]["Graduation Date"]

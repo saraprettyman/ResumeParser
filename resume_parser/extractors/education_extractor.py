@@ -165,6 +165,32 @@ class EducationExtractor(BaseExtractor):
 
         return "; ".join(p for p in details_parts if p)
 
+    def _parse_single_entry(self, block: str) -> Optional[dict]:
+        """
+        Parse a single education block into a structured dict, or None if empty.
+        """
+        text, lines = self._normalize_text(block)
+        if not lines:
+            return None
+        grad_date  = self._extract_grad_date(text)
+        location   = self._extract_location(lines)
+        institution = self._extract_institution(lines, grad_date, location)
+        degree, emphasis = self._extract_degree_emphasis(lines, location)
+        gpa_val    = self._extract_gpa(text)
+        minors_val = self._extract_minors(text)
+        details_val = self._extract_details(
+            text, lines, institution, degree, location, gpa_val, minors_val
+        )
+        return {
+            "Institution":       institution,
+            "Location":          location,
+            "Graduation Date":   grad_date,
+            "Degree & Emphasis": f"{degree}: {emphasis}" if emphasis and degree
+                                else emphasis or degree,
+            "GPA":     gpa_val,
+            "Minors":  minors_val,
+            "Details": details_val,
+    }
 
 
     def parse_education(self, section: str) -> list[dict]:
@@ -173,25 +199,10 @@ class EducationExtractor(BaseExtractor):
         """
         if not section.strip():
             return []
-
-        text, lines = self._normalize_text(section)
-        grad_date = self._extract_grad_date(text)
-        location = self._extract_location(lines)
-        institution = self._extract_institution(lines, grad_date, location)
-        degree, emphasis = self._extract_degree_emphasis(lines, location)
-        gpa_val = self._extract_gpa(text)
-        minors_val = self._extract_minors(text)
-        details_val = self._extract_details(text, lines, institution,
-                                            degree, location, gpa_val,
-                                            minors_val)
-
-        return [{
-            "Institution": institution,
-            "Location": location,
-            "Graduation Date": grad_date,
-            "Degree & Emphasis": f"{degree}: {emphasis}" if emphasis
-            and degree else emphasis or degree,
-            "GPA": gpa_val,
-            "Minors": minors_val,
-            "Details": details_val
-        }]
+        blocks = re.split(r"\n{2,}", section.strip())
+        items = []
+        for block in blocks:
+            entry = self._parse_single_entry(block)
+            if entry:
+                items.append(entry)
+        return items
